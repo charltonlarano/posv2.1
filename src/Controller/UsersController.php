@@ -3,7 +3,6 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-
 use Cake\Validation\Validation;
 
 /**
@@ -87,6 +86,7 @@ class UsersController extends AppController
                   $this->request->data['email'] = $this->request->data['username'];
                   unset($this->request->data['username']);
               }
+
 
               $user = $this->Auth->identify();
 

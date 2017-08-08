@@ -8,9 +8,9 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Fees'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <?php if($forAdmin === true) echo "<li>"; echo $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']); "</li>"; }?>
+        <?php if($forAdmin === true) {echo "<li>"; echo $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']); echo"</li>"; }?>
         <li><?= $this->Html->link(__('List Accounts'), ['controller' => 'Accounts', 'action' => 'index']) ?></li>
-        <?php if($forAdmin === true) echo "<li>"; echo $this->Html->link(__('New Account'), ['controller' => 'Accounts', 'action' => 'add']); "</li>"; }?>
+        <?php if($forAdmin === true) {echo "<li>"; echo $this->Html->link(__('New Account'), ['controller' => 'Accounts', 'action' => 'add']); "</li>"; }?>
     </ul>
 </nav>
 <div class="fees form large-9 medium-8 columns content">
