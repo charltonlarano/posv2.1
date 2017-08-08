@@ -1,0 +1,42 @@
+<?php
+/**
+  * @var \App\View\AppView $this
+  */
+?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <?php if ($forAdmin === true ) {echo "<li>"; echo $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $account->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $account->id)]
+            );
+        echo "</li>"; } ?>
+
+        <li><?= $this->Html->link(__('List Accounts'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <?php if ($forAdmin === true) {echo "<li>"; echo $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']); "</li>"; } ?>
+        <li><?= $this->Html->link(__('List Fees'), ['controller' => 'Fees', 'action' => 'index']) ?></li>
+        <?php if ($forAdmin === true) {echo "<li>"; echo $this->Html->link(__('New Fee'), ['controller' => 'Fees', 'action' => 'add']); echo "</li>"; } ?>
+
+    </ul>
+</nav>
+
+<div class="accounts form large-9 medium-8 columns content">
+    <?= $this->Form->create($account) ?>
+    <fieldset>
+        <legend><?= __('Edit Account') ?></legend>
+        <?php
+
+            echo $this->Form->control('user_id', ['options' => $users]);
+            echo $this->Form->control('account_name');
+            echo $this->Form->control('account_number');
+            echo $this->Form->control('debit');
+            echo $this->Form->control('credit');
+            echo $this->Form->control('fees._ids', ['options' => $fees]);
+
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
+</div>
